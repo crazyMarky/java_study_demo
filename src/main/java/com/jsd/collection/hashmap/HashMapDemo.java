@@ -41,6 +41,5 @@ public class HashMapDemo {
             System.out.println(v);
         });
 
-        LinkedList<Object> objects = new LinkedList<>();
     }
 }
