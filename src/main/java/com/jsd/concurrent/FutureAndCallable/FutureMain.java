@@ -1,6 +1,7 @@
 package com.jsd.concurrent.FutureAndCallable;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
@@ -23,10 +24,13 @@ public class FutureMain {
      */
     public static void main(String[] args) {
         //模拟地址(我这里使用的是实际的路径)
-        String path = "E:\\java_demo\\java_study_demo\\src\\main\\java\\com\\jsd\\concurrent\\FutureAndCallable\\file";
+        //String path = "E:\\java_demo\\java_study_demo\\src\\main\\java\\com\\jsd\\concurrent\\FutureAndCallable\\file";
+        ClassLoader classLoader = FutureMain.class.getClassLoader();
+        String path1 = classLoader.getResource("").getPath()+"\\concurrent\\FutureAndCallable\\file";
         //模拟关键词
         String keyWord = "a";
-        File directory = new File(path);
+        File directory = new File(path1);
+
         //开启一个Callable的线程，将目录下和关键词传递过去
         CallableDemo callableDemo = new CallableDemo(directory, keyWord);
         //使用FutrueTask获取返回值

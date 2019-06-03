@@ -10,7 +10,8 @@ import java.util.Stack;
      前序遍历：根节点 左子树 右子树
      中序遍历：左子树 根节点 右子树
      后序遍历：左子树 右子树 根节点
-    采用递归的方式实现
+    采用递归的方式实现和采用栈来实现
+     资料来源：漫画算法
  * Created by liaoh on 2019/6/2.
  */
 public class BinTree {
