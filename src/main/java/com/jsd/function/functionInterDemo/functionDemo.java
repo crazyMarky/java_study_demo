@@ -3,6 +3,10 @@ package com.jsd.function.functionInterDemo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author A001007008
+ */
 public class functionDemo {
 
     public static void main(String[] args) {

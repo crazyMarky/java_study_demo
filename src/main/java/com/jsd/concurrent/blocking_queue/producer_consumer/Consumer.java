@@ -2,6 +2,10 @@ package com.jsd.concurrent.blocking_queue.producer_consumer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
+/**
+ *
+ * @author A001007008
+ */
 public class Consumer implements Runnable {
 
     private final ArrayBlockingQueue arrayBlockingQueue;

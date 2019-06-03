@@ -1,5 +1,9 @@
 package com.jsd.function.functionInterDemo;
 
+/**
+ *
+ * @author A001007008
+ */
 @FunctionalInterface
 public interface FunctionInter<T> {
     /**

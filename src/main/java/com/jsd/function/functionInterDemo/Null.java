@@ -2,6 +2,10 @@ package com.jsd.function.functionInterDemo;
 
 import java.util.function.Supplier;
 
+/**
+ *
+ * @author A001007008
+ */
 public class Null<T> {
 
     /**
