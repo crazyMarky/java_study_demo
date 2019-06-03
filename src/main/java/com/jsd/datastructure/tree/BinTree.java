@@ -3,13 +3,14 @@ package com.jsd.datastructure.tree;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 一个简单的二叉树三种遍历策略展示：
      前序遍历：根节点 左子树 右子树
      中序遍历：左子树 根节点 右子树
      后序遍历：左子树 右子树 根节点
-    主要采用递归的方式实现
+    采用递归的方式实现
  * Created by liaoh on 2019/6/2.
  */
 public class BinTree {
@@ -60,6 +61,31 @@ public class BinTree {
     }
 
     /**
+     * 前序遍历打印--用栈实现
+     * 整体思路：
+     * 将父节点入栈，去找左孩子，如果左孩子遍历完了，父节点出栈，去找右孩子
+     */
+    public static void preOrderStackPrint(TreeNode treeNode){
+        //栈
+        Stack<TreeNode> treeNodes = new Stack<>();
+        while (treeNode!=null||!treeNodes.isEmpty()){
+            while (treeNode!=null){
+                System.out.println(treeNode.date);
+                //将父节点入栈
+                treeNodes.push(treeNode);
+                //获得左孩子
+                treeNode = treeNode.leftChild;
+            }
+            if (!treeNodes.isEmpty()){
+                //父节点出栈
+                treeNode = treeNodes.pop();
+                //拿到右孩子
+                treeNode = treeNode.rightChild;
+            }
+        }
+    }
+
+    /**
      * 中序遍历打印
       * @param treeNode
      */
@@ -97,5 +123,7 @@ public class BinTree {
         inOrderPrint(binTree);
         System.out.println("后序遍历：");
         afterOderPrint(binTree);
+        System.out.println("前序遍历--栈实现：");
+        preOrderStackPrint(binTree);
     }
 }
