@@ -1,6 +1,7 @@
 package com.jsd.concurrent.ThreadPool;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ThreadPoolDemo {
 
@@ -8,7 +9,10 @@ public class ThreadPoolDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         /**
          * 虽然原生的线程池好像已经不怎么用了，有更好的框架封装了更好的线程池
-         * 但熟悉一下也是不错的
+         * 但熟悉一下也是不错的，任何线程池的实现都是区别不大的
+         * Excutors只是创建线程的一个工厂，具体的线程创建可以查看一下
+         * {@link ThreadPoolExecutor}
+         * 关于线程池相关的可以去查看一下线程池的详解
          */
         ExecutorService pool = Executors.newCachedThreadPool();
         /**
