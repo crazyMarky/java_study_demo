@@ -74,7 +74,7 @@ public class CallableDemo implements Callable<Integer> {
             try {
                 count += result.get();
             } catch (ExecutionException e) {
-
+                e.printStackTrace();
             }
         }
         return count;
