@@ -30,6 +30,13 @@ public class CyclicBarrierDemo {
         for (int i = 0; i < 5; i++) {
             executorService.execute(new myRunnable2(cyclicBarrier));
         }
+
+        //将线程池关闭
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+        }
+        executorService.shutdownNow();
         //cyclicBarrier是可以在下面中进行重用的
 //        for (int i = 0; i < 5; i++) {
 //            executorService.execute(new myRunnable2(cyclicBarrier));

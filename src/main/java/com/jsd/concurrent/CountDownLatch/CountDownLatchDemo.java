@@ -45,6 +45,9 @@ public class CountDownLatchDemo {
         }
         //调用方法阻塞当前线程，等所有的finish线程都完成了就被唤醒
         finishLatch.await();
+
+        //将线程池关闭
+        executorService.shutdownNow();
     }
 }
 
