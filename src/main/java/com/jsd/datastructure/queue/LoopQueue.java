@@ -3,7 +3,7 @@ package com.jsd.datastructure.queue;
 /**
  * 循环队列的实现
  * 循环队列就是容量固定，下标可循环的队列
- *
+ * 补充资料https://blog.csdn.net/return9/article/details/79672708
  * Created by liaoh on 2019/6/9.
  */
 public class LoopQueue {
