@@ -59,6 +59,10 @@ public class head {
             } else {
                 index = rightChil;
             }
+        }else if (leftChil <= head.size() - 1){
+            index=leftChil;
+        }else if (rightChil <= head.size() - 1){
+            index=rightChil;
         }
         return index;
     }
@@ -99,11 +103,12 @@ public class head {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{10, 14, 555, 12, 324, 789, 554, 12, 35, 123};
+        int[] a = new int[]{789,555,554,11,10,456,789,1234,562,4502,123,4556,4451,3325,2345,4531};
         ArrayList<Integer> head = createHead(a);
         System.out.println(head.toString());
         int max = remove(head);
-        System.out.printf(max + "");
+        System.out.println(max + "");
+        System.out.println(head.toString());
     }
 
 
