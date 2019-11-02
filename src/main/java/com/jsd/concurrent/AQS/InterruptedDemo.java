@@ -50,4 +50,5 @@ public class InterruptedDemo {
         System.out.println("第二次中断判断 " + Thread.interrupted());
 
     }
+
 }
