@@ -59,10 +59,10 @@ public class head {
             } else {
                 index = rightChil;
             }
-        }else if (leftChil <= head.size() - 1){
-            index=leftChil;
-        }else if (rightChil <= head.size() - 1){
-            index=rightChil;
+        } else if (leftChil <= head.size() - 1) {
+            index = leftChil;
+        } else if (rightChil <= head.size() - 1) {
+            index = rightChil;
         }
         return index;
     }
@@ -103,12 +103,57 @@ public class head {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{789,555,554,11,10,456,789,1234,562,4502,123,4556,4451,3325,2345,4531};
+        int[] a = new int[]{789, 555, 554, 11, 10, 456, 789, 1234, 562, 4502, 123, 4556, 4451, 3325, 2345, 4531};
         ArrayList<Integer> head = createHead(a);
         System.out.println(head.toString());
         int max = remove(head);
         System.out.println(max + "");
         System.out.println(head.toString());
+        sort(head);
+        System.out.println(head.toString());
+    }
+
+    public static void sort(ArrayList<Integer> head) {
+        int length = head.size() - 1;
+        for (int i = 0; i < head.size()-1; i++) {
+            arraySwap(0, head, length);
+            shiftDown(0, head, length - 1);
+            length--;
+        }
+    }
+
+    public static void shiftDown(int index, ArrayList<Integer> head, int length) {
+        int num = head.get(index);
+        int leftChil = getLeftChil(index);
+        int rightChil = getRightChil(index);
+        int maxIndex = getMaxChilIndex(leftChil, rightChil, head,length);
+        if (maxIndex != -1) {
+            if (maxIndex <= length) {
+                if (num < head.get(maxIndex)) {
+                    //比子节点最大的小的时候要交换
+                    arraySwap(index, head, maxIndex);
+                    shiftDown(maxIndex, head, length);
+                }
+            }
+        }
+    }
+
+    public static int getMaxChilIndex(int leftChil, int rightChil, ArrayList<Integer> head,int length) {
+        int index = -1;
+        if (leftChil < length && rightChil < length) {
+            int lefNum = head.get(leftChil);
+            int righNum = head.get(rightChil);
+            if (lefNum >= righNum) {
+                index = leftChil;
+            } else {
+                index = rightChil;
+            }
+        } else if (leftChil <= length) {
+            index = leftChil;
+        } else if (rightChil <= length) {
+            index = rightChil;
+        }
+        return index;
     }
 
 
