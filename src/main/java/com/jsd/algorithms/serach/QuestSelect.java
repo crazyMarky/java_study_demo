@@ -4,7 +4,7 @@ public class QuestSelect {
 
 
     public static int questSelect(int k, int[] array, int low, int hight) {
-        int firstLow=low;
+        int firstLow = low;
         //获取任意一个数
         int index = 0;
         int pivot = array[index];
@@ -23,9 +23,10 @@ public class QuestSelect {
             index = low;
         }
         //看是否第k个最小值
-        if ((k-1) ==index) {
-           return array[index];
-        }else {
+        if ((k - 1) == index) {
+            return array[index];
+        } else {
+            //如果不是的话则继续遍历前一段区间的集合
             return questSelect(k, array, firstLow, index);
         }
 
