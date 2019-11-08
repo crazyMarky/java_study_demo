@@ -2,7 +2,7 @@ package com.jsd.datastructure.head;
 
 import java.util.ArrayList;
 
-public class head {
+public class Head {
 
     public static ArrayList<Integer> createHead(int[] a) {
         ArrayList<Integer> head = new ArrayList();
