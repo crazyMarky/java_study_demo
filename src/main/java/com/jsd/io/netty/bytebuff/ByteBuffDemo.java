@@ -14,7 +14,6 @@ public class ByteBuffDemo extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
         Charset utf8 = Charset.forName("UTF-8");
-
         //使用一个copy可以深拷贝一个ByteBuf
         ByteBuf copy = byteBuf.copy();
         //可以使用silce()来划分一部分的区域复制(浅拷贝)
@@ -61,7 +60,7 @@ public class ByteBuffDemo extends SimpleChannelInboundHandler<ByteBuf> {
         //clear() 比 discardReadBytes() 更低成本，因为他只是重置了索引，而没有内存拷贝。
         byteBuf.clear();
         System.out.println(byteBuf.toString(utf8));
-        System.out.println(slice.toString(utf8));
+//        System.out.println(slice.toString(utf8));
         //为了减少分配和释放内存的开销，Netty 通过支持池类 ByteBufAllocator，可用于分配的任何 ByteBuf 我们已经描述过的类型的实例
         ByteBufAllocator alloc = channelHandlerContext.alloc();
         ByteBuf buffer = alloc.buffer();
@@ -71,7 +70,6 @@ public class ByteBuffDemo extends SimpleChannelInboundHandler<ByteBuf> {
         //当未引用 ByteBufAllocator 时，上面的方法无法访问到 ByteBuf。
         // 对于这个用例 Netty 提供一个实用工具类称为 Unpooled,，它提供了静态辅助方法来创建非池化的 ByteBuf 实例
         ByteBuf buf = Unpooled.copiedBuffer("channel1 give it to u", utf8);
-//        System.out.println(buf.toString());
-        channelHandlerContext.write(buffer);
+        channelHandlerContext.fireChannelRead(buffer);
     }
 }

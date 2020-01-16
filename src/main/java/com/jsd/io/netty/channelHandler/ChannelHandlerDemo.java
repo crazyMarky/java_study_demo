@@ -1,4 +1,4 @@
-package com.jsd.io.netty.bytebuff;
+package com.jsd.io.netty.channelHandler;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -7,7 +7,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class NettyServerByteBuffDemo {
+public class ChannelHandlerDemo {
 
     private static int port = 9999;
 
@@ -17,7 +17,10 @@ public class NettyServerByteBuffDemo {
         serverBootstrap.group(group).channel(NioServerSocketChannel.class).childHandler(new ChannelInitializer() {
             @Override
             protected void initChannel(Channel channel) throws Exception {
-                channel.pipeline().addLast(new ByteBuffDemo());
+                //直接运行客户端和测试端，可以快速得出整个生命周期
+                //总结一:整个出站入站的顺序是入站：从左到右，出站从又到左，同一个管道中的Handler需要向下传递触发
+                //有意思的是出站的方法是在多个时候会触发
+                channel.pipeline().addLast(new ChannelInboundHandlerLifeCycleDemo()).addFirst(new ChannelOutboundHandlerLifeCycleDemo());
             }
         });
         try {
@@ -29,7 +32,7 @@ public class NettyServerByteBuffDemo {
     }
 
     public static void main(String[] args) {
-        NettyServerByteBuffDemo nettyServerByteBuffDemo = new NettyServerByteBuffDemo();
+        ChannelHandlerDemo nettyServerByteBuffDemo = new ChannelHandlerDemo();
         nettyServerByteBuffDemo.connet();
     }
 }

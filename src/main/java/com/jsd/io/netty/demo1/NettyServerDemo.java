@@ -36,6 +36,7 @@ public class NettyServerDemo {
         }
 
     }
+
     public static void main(String[] args) {
         new NettyServerDemo().startNetty();
     }
