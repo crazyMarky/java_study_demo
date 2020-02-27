@@ -18,7 +18,7 @@ public class functionDemo {
         list.add("2");
         list.add("3");
         functionDemo functionDemo = new functionDemo();
-        functionDemo.test(list, t -> System.out.println(t));
+        functionDemo.test(list, System.out::println);
         /**
          * Supplier<T>举例
          */
@@ -51,7 +51,8 @@ public class functionDemo {
         //函数定义
         Function2<Integer, Integer> function1 =(x,y,f)->f.apply(x)+f.apply(y);
         //内函数定义
-        function1.op(5,10,(t)->t+1);
+        Integer op = function1.op(5, 10, (t) -> t + 1);
+        System.out.println(op);
     }
 
     public void test(List list, FunctionInter functionInter) {
