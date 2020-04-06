@@ -1,4 +1,4 @@
-package com.jsd.t;
+package com.jsd.test;
 
 /**
  * 在最后描述最后一个泛型相关的东西

@@ -1,4 +1,4 @@
-package com.jsd.t;
+package com.jsd.test;
 
 /**
  * 虚拟机中并没有泛型对象(语法糖)

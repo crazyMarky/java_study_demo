@@ -40,6 +40,6 @@ public class HashMapDemo {
             System.out.println(k);
             System.out.println(v);
         });
-
     }
+
 }

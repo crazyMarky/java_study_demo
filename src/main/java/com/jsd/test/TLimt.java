@@ -1,4 +1,4 @@
-package com.jsd.t;
+package com.jsd.test;
 
 import java.util.ArrayList;
 import java.util.Collection;

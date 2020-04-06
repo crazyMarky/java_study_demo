@@ -1,4 +1,4 @@
-package com.jsd.t;
+package com.jsd.test;
 
 public class Employee {
 
