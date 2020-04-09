@@ -5,6 +5,9 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * ForkJoin 拆分子任务再汇总计算结果
+ */
 public class ForkJoinExample extends RecursiveTask<Integer> {
     private final int threshold = 5;
     private int first;
